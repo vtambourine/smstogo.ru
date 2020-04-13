@@ -1,0 +1,26 @@
+.PassSelector {
+}
+
+.PassSelector-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.PassSelector-tab {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.PassSelector-tab:last-child {
+  margin-right: 0;
+}
+
+.PassSelector-tab--active {
+  border-color: black;
+}

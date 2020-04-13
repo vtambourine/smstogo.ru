@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.App-header {
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-page {
+  margin: 60px 12px;
+}

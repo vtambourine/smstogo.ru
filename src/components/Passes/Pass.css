@@ -1,0 +1,11 @@
+.Pass {
+}
+
+.Pass-field {
+  padding: 3px 0;
+}
+
+.Pass-label {
+  display: block;
+  font-size: 90%;
+}
