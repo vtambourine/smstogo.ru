@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { passes } from "../PassGenerator";
+import { passes, PassType } from "../PassGenerator";
 
 import "./PassSelector.css";
 
 interface PassSelectorProps {
-  onChange: (type: keyof typeof passes) => void;
+  onChange: (type: PassType) => void;
 }
 
 export function PassSelector({ onChange }: PassSelectorProps) {
@@ -24,7 +24,7 @@ export function PassSelector({ onChange }: PassSelectorProps) {
               })}
               onClick={() => {
                 setActive(type);
-                onChange(type);
+                onChange(type as PassType);
               }}
             >
               {pass.name}
