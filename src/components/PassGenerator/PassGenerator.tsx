@@ -1,78 +1,10 @@
 import React, { useState } from "react";
 import Clipboard from "clipboard";
-import { PassForm } from "../Passes";
+import { PassType, PassField, passes } from "../Pass";
+import { PassForm } from "../PassForm";
 import { PassSelector } from "../PassSelector";
 
 import "./PassGenerator.css";
-
-export enum PassType {
-  WORK = "work",
-  MEDICAL = "medical",
-  OTHER = "other",
-}
-
-export enum Field {
-  PASSPORT_SERIES = "passport-series",
-  PASSPORT_NUMBER = "passport-number",
-  DATE_OF_BIRTH = "date-of-birth",
-  VEHICLE_NUMBER = "vehicle-number",
-  TROIKA = "troika",
-  STRELKA = "strelka",
-  EMPLOYER_TAX_NUMBER = "employer-tax-number",
-  EMPLOYER_DESCRIPTION = "employer-description",
-  PURPOSE = "purpose",
-  HOSPITAL_DESCRIPTION = "hospital-description",
-  DESTINATION = "destination",
-  DESCRIPTION = "description",
-}
-
-interface Pass {
-  id: number;
-  name: string;
-  fields: Field[];
-}
-
-export const passes: Record<PassType, Pass> = {
-  [PassType.WORK]: {
-    id: 1,
-    name: "Работа",
-    fields: [
-      Field.PASSPORT_SERIES,
-      Field.PASSPORT_NUMBER,
-      Field.VEHICLE_NUMBER,
-      Field.TROIKA,
-      Field.STRELKA,
-      Field.EMPLOYER_TAX_NUMBER,
-      Field.EMPLOYER_DESCRIPTION,
-    ],
-  },
-  [PassType.MEDICAL]: {
-    id: 2,
-    name: "Медицина",
-    fields: [
-      Field.PASSPORT_SERIES,
-      Field.PASSPORT_NUMBER,
-      Field.DATE_OF_BIRTH,
-      Field.VEHICLE_NUMBER,
-      Field.TROIKA,
-      Field.STRELKA,
-      Field.HOSPITAL_DESCRIPTION,
-    ],
-  },
-  [PassType.OTHER]: {
-    id: 3,
-    name: "Иные цели",
-    fields: [
-      Field.PASSPORT_SERIES,
-      Field.PASSPORT_NUMBER,
-      Field.VEHICLE_NUMBER,
-      Field.TROIKA,
-      Field.STRELKA,
-      Field.PURPOSE,
-      Field.DESTINATION,
-    ],
-  },
-};
 
 function onSubmit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -83,7 +15,7 @@ const clipboard = new Clipboard(".PassGenerator-copy", {
 });
 
 export function PassGenerator() {
-  const [type, setPassType] = useState<keyof typeof passes>(PassType.WORK);
+  const [type, setPassType] = useState<PassType>(PassType.WORK);
   const [fieldsState, setFieldsState] = useState<Record<string, any>>({});
 
   return (
@@ -120,7 +52,7 @@ export function PassGenerator() {
 function formatSMS(
   state: Record<string, any>,
   type: PassType,
-  fields: Field[]
+  fields: PassField[]
 ) {
   return (
     "Пропуск*" +
@@ -128,10 +60,4 @@ function formatSMS(
     "*1*" +
     fields.map((field) => state[field]).join("*")
   );
-}
-
-export interface PassFormProps {
-  type: keyof typeof passes;
-  values: Record<string, any>;
-  onChange: React.ChangeEventHandler<HTMLSelectElement | HTMLInputElement>;
 }

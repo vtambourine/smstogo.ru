@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { passes, PassType } from "../PassGenerator";
+import { passes, PassType } from "../Pass";
 
 import "./PassSelector.css";
 
