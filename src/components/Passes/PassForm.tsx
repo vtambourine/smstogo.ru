@@ -5,7 +5,7 @@ export function PassForm(props: PassFormProps) {
   return (
     <div className="Pass">
       <div className="Pass-field">
-        <label className="Pass-label">Паспорт</label>
+        <label className="Pass-label">Паспорт РФ</label>
         <input
           type="text"
           name={Field.PASSPORT_SERIES}
@@ -25,17 +25,17 @@ export function PassForm(props: PassFormProps) {
           <input
             type="text"
             name={Field.DATE_OF_BIRTH}
-            placeholder="12.03.2000"
+            placeholder="ДД.ММ.ГГГГ"
             onChange={props.onChange}
           />
         </div>
       ) : null}
       <div className="Pass-field">
-        <label className="Pass-label">Номер ТС</label>
+        <label className="Pass-label">Номер транспортного средства</label>
         <input
           type="text"
           name={Field.VEHICLE_NUMBER}
-          placeholder="Р043МП177"
+          placeholder="Р043МП177 или 0505АА77"
           onChange={props.onChange}
         />
       </div>
@@ -44,7 +44,7 @@ export function PassForm(props: PassFormProps) {
         <input
           type="text"
           name={Field.TROIKA}
-          placeholder="Номер Тройки"
+          placeholder="12345678901"
           pattern="\d*"
           onChange={props.onChange}
         />
@@ -54,7 +54,7 @@ export function PassForm(props: PassFormProps) {
         <input
           type="text"
           name={Field.STRELKA}
-          placeholder="Номер Стрелки"
+          placeholder="12345678901"
           onChange={props.onChange}
         />
       </div>
@@ -89,7 +89,7 @@ export function PassForm(props: PassFormProps) {
           <input
             type="text"
             name={Field.HOSPITAL_DESCRIPTION}
-            placeholder="Название"
+            placeholder="ГКБ Боткина"
             onChange={props.onChange}
           />
         </div>
@@ -100,7 +100,7 @@ export function PassForm(props: PassFormProps) {
           <input
             type="text"
             name={Field.PURPOSE}
-            placeholder="Цель выхода"
+            placeholder="на дачу"
             maxLength={20}
             onChange={props.onChange}
           />
@@ -108,11 +108,11 @@ export function PassForm(props: PassFormProps) {
       ) : null}
       {props.type === PassType.OTHER ? (
         <div className="Pass-field">
-          <label className="Pass-label">Пункт назначения</label>
+          <label className="Pass-label">Адрес назначения</label>
           <input
             type="text"
             name={Field.DESTINATION}
-            placeholder="Пункт назначения"
+            placeholder="Опалиха Пришвина 11"
             onChange={props.onChange}
           />
         </div>

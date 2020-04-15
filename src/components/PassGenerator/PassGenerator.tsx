@@ -60,7 +60,7 @@ export const passes: Record<PassType, Pass> = {
   },
   [PassType.OTHER]: {
     id: 3,
-    name: "Иные",
+    name: "Иные цели",
     fields: [
       Field.PASSPORT_SERIES,
       Field.PASSPORT_NUMBER,
