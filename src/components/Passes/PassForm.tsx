@@ -76,7 +76,7 @@ export function PassForm(props: PassFormProps) {
           <input
             type="text"
             name={Field.EMPLOYER_DESCRIPTION}
-            placeholder="Пункт назначения"
+            placeholder="ООО Ромашка"
             onChange={props.onChange}
           />
         </div>
