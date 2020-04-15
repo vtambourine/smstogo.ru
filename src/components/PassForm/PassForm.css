@@ -1,11 +1,43 @@
-.Pass {
+.PassForm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.Pass-field {
-  padding: 3px 0;
+.PassForm-field {
+  margin-bottom: 10px;
 }
 
-.Pass-label {
+.PassForm-label {
   display: block;
   font-size: 90%;
+  line-height: 2;
+  margin-bottom: 4px;
+}
+
+.PassForm-input {
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+}
+
+.PassForm-input--inline {
+  width: auto;
+}
+
+.PassForm-field--passport .PassForm-fieldBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.PassForm-field--passport .PassForm-input:first-child {
+  width: 30%;
+  margin-right: 12px;
+}
+
+.PassForm-field--passport .PassForm-input:last-child {
+  flex-grow: 1;
 }

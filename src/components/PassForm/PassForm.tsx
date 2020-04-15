@@ -11,26 +11,33 @@ export interface PassFormProps {
 
 export function PassForm(props: PassFormProps) {
   return (
-    <div className="Pass">
-      <div className="Pass-field">
-        <label className="Pass-label">Паспорт РФ</label>
-        <input
-          type="text"
-          name={PassField.PASSPORT_SERIES}
-          placeholder="Серия"
-          onChange={props.onChange}
-        />
-        <input
-          type="text"
-          name={PassField.PASSPORT_NUMBER}
-          placeholder="Номер"
-          onChange={props.onChange}
-        />
+    <div className="PassForm">
+      <div className="PassForm-field PassForm-field--passport">
+        <label className="PassForm-label">Паспорт РФ</label>
+        <div className="PassForm-field PassForm-fieldBlock">
+          <input
+            className="PassForm-input PassForm-input--inline"
+            type="text"
+            name={PassField.PASSPORT_SERIES}
+            placeholder="Серия"
+            size={4}
+            onChange={props.onChange}
+          />
+          <input
+            className="PassForm-input PassForm-input--inline"
+            type="text"
+            name={PassField.PASSPORT_NUMBER}
+            placeholder="Номер"
+            size={6}
+            onChange={props.onChange}
+          />
+        </div>
       </div>
       {props.type === PassType.MEDICAL ? (
-        <div className="Pass-field">
-          <label className="Pass-label">Дата рождения</label>
+        <div className="PassForm-field">
+          <label className="PassForm-label">Дата рождения</label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.DATE_OF_BIRTH}
             placeholder="ДД.ММ.ГГГГ"
@@ -38,18 +45,20 @@ export function PassForm(props: PassFormProps) {
           />
         </div>
       ) : null}
-      <div className="Pass-field">
-        <label className="Pass-label">Номер транспортного средства</label>
+      <div className="PassForm-field">
+        <label className="PassForm-label">Номер транспортного средства</label>
         <input
+          className="PassForm-input"
           type="text"
           name={PassField.VEHICLE_NUMBER}
           placeholder="Р043МП177 или 0505АА77"
           onChange={props.onChange}
         />
       </div>
-      <div className="Pass-field">
-        <label className="Pass-label">Номер Тройки</label>
+      <div className="PassForm-field">
+        <label className="PassForm-label">Номер Тройки</label>
         <input
+          className="PassForm-input"
           type="text"
           name={PassField.TROIKA}
           placeholder="12345678901"
@@ -57,9 +66,10 @@ export function PassForm(props: PassFormProps) {
           onChange={props.onChange}
         />
       </div>
-      <div className="Pass-field">
-        <label className="Pass-label">Номер Стрелки</label>
+      <div className="PassForm-field">
+        <label className="PassForm-label">Номер Стрелки</label>
         <input
+          className="PassForm-input"
           type="text"
           name={PassField.STRELKA}
           placeholder="12345678901"
@@ -67,9 +77,10 @@ export function PassForm(props: PassFormProps) {
         />
       </div>
       {props.type === PassType.WORK ? (
-        <div className="Pass-field">
-          <label className="Pass-label">ИНН организации</label>
+        <div className="PassForm-field">
+          <label className="PassForm-label">ИНН организации</label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.EMPLOYER_TAX_NUMBER}
             placeholder="ИНН"
@@ -79,9 +90,12 @@ export function PassForm(props: PassFormProps) {
         </div>
       ) : null}
       {props.type === PassType.WORK ? (
-        <div className="Pass-field">
-          <label className="Pass-label">Краткое наименование организации</label>
+        <div className="PassForm-field">
+          <label className="PassForm-label">
+            Краткое наименование организации
+          </label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.EMPLOYER_DESCRIPTION}
             placeholder="ООО Ромашка"
@@ -90,11 +104,12 @@ export function PassForm(props: PassFormProps) {
         </div>
       ) : null}
       {props.type === PassType.MEDICAL ? (
-        <div className="Pass-field">
-          <label className="Pass-label">
+        <div className="PassForm-field">
+          <label className="PassForm-label">
             Краткое наименование медучреждения
           </label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.HOSPITAL_DESCRIPTION}
             placeholder="ГКБ Боткина"
@@ -103,9 +118,10 @@ export function PassForm(props: PassFormProps) {
         </div>
       ) : null}
       {props.type === PassType.OTHER ? (
-        <div className="Pass-field">
-          <label className="Pass-label">Цель выхода</label>
+        <div className="PassForm-field">
+          <label className="PassForm-label">Цель выхода</label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.PURPOSE}
             placeholder="на дачу"
@@ -115,9 +131,10 @@ export function PassForm(props: PassFormProps) {
         </div>
       ) : null}
       {props.type === PassType.OTHER ? (
-        <div className="Pass-field">
-          <label className="Pass-label">Адрес назначения</label>
+        <div className="PassForm-field">
+          <label className="PassForm-label">Адрес назначения</label>
           <input
+            className="PassForm-input"
             type="text"
             name={PassField.DESTINATION}
             placeholder="Опалиха Пришвина 11"

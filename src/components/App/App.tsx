@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">СМС пропуск</header>
       <div className="App-page">
         <PassGenerator />
       </div>

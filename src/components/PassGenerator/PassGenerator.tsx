@@ -6,10 +6,6 @@ import { PassSelector } from "../PassSelector";
 
 import "./PassGenerator.css";
 
-function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-}
-
 const clipboard = new Clipboard(".PassGenerator-copy", {
   target: () => document.getElementById("sms-text")!,
 });
@@ -19,32 +15,29 @@ export function PassGenerator() {
   const [fieldsState, setFieldsState] = useState<Record<string, any>>({});
 
   return (
-    <div>
+    <div className="PassGenerator">
       <PassSelector
         onChange={(type) => {
           setPassType(type);
         }}
       />
-      <form onSubmit={onSubmit}>
-        <PassForm
-          type={type}
-          values={fieldsState}
-          onChange={(event: any) => {
-            setFieldsState({
-              ...fieldsState,
-              [event.target.name]: event.target.value,
-            });
-          }}
-        />
-        <br />
-        <div className="PassGenerator-smsText" id="sms-text">
-          {formatSMS(fieldsState, type, passes[type].fields)}
-        </div>
-        <button className="PassGenerator-copy">Скопировать</button>
-        <div className="PassGenerator-smsNumber">
-          <label>Москва: СМС на 7377</label>
-        </div>
-      </form>
+      <PassForm
+        type={type}
+        values={fieldsState}
+        onChange={(event: any) => {
+          setFieldsState({
+            ...fieldsState,
+            [event.target.name]: event.target.value,
+          });
+        }}
+      />
+      <div className="PassGenerator-smsText" id="sms-text">
+        {formatSMS(fieldsState, type, passes[type].fields)}
+      </div>
+      <button className="PassGenerator-copy">Скопировать</button>
+      <div className="PassGenerator-smsNumber">
+        <label>Москва: СМС на 7377</label>
+      </div>
     </div>
   );
 }
