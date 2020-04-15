@@ -3,3 +3,6 @@
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   word-break: break-all;
 }
+.PassGenerator-smsNumber {
+  font-size: 200%;
+}

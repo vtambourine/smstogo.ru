@@ -103,6 +103,7 @@ export function PassGenerator() {
         <div className="PassGenerator-smsText">
           {formatSMS(fieldsState, type, passes[type].fields)}
         </div>
+		<div className="PassGenerator-smsNumber"><label>Москва: СМС на 7377</label></div>
       </form>
     </div>
   );
