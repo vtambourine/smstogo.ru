@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Clipboard from "clipboard";
 import { PassForm } from "../Passes";
 import { PassSelector } from "../PassSelector";
 
@@ -77,6 +78,10 @@ function onSubmit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
 }
 
+const clipboard = new Clipboard(".PassGenerator-copy", {
+  target: () => document.getElementById("sms-text")!,
+});
+
 export function PassGenerator() {
   const [type, setPassType] = useState<keyof typeof passes>(PassType.WORK);
   const [fieldsState, setFieldsState] = useState<Record<string, any>>({});
@@ -100,10 +105,13 @@ export function PassGenerator() {
           }}
         />
         <br />
-        <div className="PassGenerator-smsText">
+        <div className="PassGenerator-smsText" id="sms-text">
           {formatSMS(fieldsState, type, passes[type].fields)}
         </div>
-		<div className="PassGenerator-smsNumber"><label>Москва: СМС на 7377</label></div>
+        <button className="PassGenerator-copy">Скопировать</button>
+        <div className="PassGenerator-smsNumber">
+          <label>Москва: СМС на 7377</label>
+        </div>
       </form>
     </div>
   );
