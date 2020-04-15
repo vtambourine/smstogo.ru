@@ -52,6 +52,7 @@ export const passes: Record<PassType, Pass> = {
       Field.PASSPORT_SERIES,
       Field.PASSPORT_NUMBER,
       Field.DATE_OF_BIRTH,
+      Field.VEHICLE_NUMBER,
       Field.TROIKA,
       Field.STRELKA,
       Field.HOSPITAL_DESCRIPTION,
