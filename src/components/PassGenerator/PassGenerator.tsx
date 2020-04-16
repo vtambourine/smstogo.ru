@@ -16,6 +16,8 @@ export function PassGenerator() {
 
   return (
     <div className="PassGenerator">
+      <div className="PassGenerator-description">Cоставить SMS для получения пропуска через 7377. Власти Москвы сообщили, что отклоняют 9 из 10 заявок из-за некорректного текста SMS. 
+	  <br/>Страница работает офлайн, SMS формируется прямо на телефоне, ваши личные данные не собираются.</div>
       <PassSelector
         onChange={(type) => {
           setPassType(type);
@@ -36,7 +38,8 @@ export function PassGenerator() {
       </div>
       <button className="PassGenerator-copy">Скопировать</button>
       <div className="PassGenerator-smsNumber">
-        <label>Москва: СМС на 7377</label>
+        <label>Москва: СМС на 7377</label><br/>
+        <label className="PassGenerator-projectLink"><a href="https://github.com/vtambourine/smstogo" target="_blank">Проект с открытым кодом</a></label>
       </div>
     </div>
   );

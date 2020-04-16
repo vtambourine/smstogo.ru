@@ -2,10 +2,20 @@
   font-size: 200%;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   word-break: break-all;
+  margin:10px 0 10px;
+}
+
+.PassGenerator-description {
+    font-size: 90%;
+    background-color: #efe;
+    padding: 15px 20px;
+    display: block;
+	margin: 15px 0 15px;
 }
 
 .PassGenerator-smsNumber {
   font-size: 200%;
+  margin:10px 0 10px;
 }
 
 .PassGenerator-copy {
@@ -14,4 +24,7 @@
   background-color: #ddd;
   font-size: 16px;
   padding: 12px;
+}
+.PassGenerator-projectLink {
+    font-size: 80%;
 }
