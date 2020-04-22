@@ -36,7 +36,7 @@ export function PassGenerator() {
       <div className="PassGenerator-smsText" id="sms-text">
         {formatSMS(fieldsState, type, passes[type].fields)}
       </div>
-      <button className="PassGenerator-copy" onclick="ym(61990129,'reachGoal','SMSGenerated'); return true;">Скопировать</button>
+      <button className="PassGenerator-copy">Скопировать</button>
       <div className="PassGenerator-smsNumber">
         <label>Москва: СМС на 7377</label><br/>
         <label className="PassGenerator-projectLink"><a href="https://github.com/vtambourine/smstogo" target="_blank">Проект с открытым кодом</a></label>
